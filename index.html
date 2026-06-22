@@ -3,82 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Видеобиблиотека</title>
+    <title>Наследие ФЕНКА — Видеобиблиотека</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 
+    <!-- HEADER -->
     <header class="site-header">
-        <div class="container-fluid px-4">
-            <div class="d-flex align-items-center justify-content-between py-3">
-                <div class="logo">
-                    <span class="logo-text">ВИДЕО<span class="logo-accent">БИБЛИОТЕКА</span></span>
-                </div>
-                <div class="search-wrap">
-                    <div class="search-box">
-                        <i class="bi bi-search"></i>
-                        <input type="text" id="searchInput" placeholder="Поиск видео...">
-                    </div>
-                </div>
+        <div class="header-inner">
+            <a class="logo" href="#">
+                <span class="logo-text">НАСЛЕДИЕ <span class="logo-accent">ФЕНКА</span></span>
+            </a>
+            <nav class="main-nav">
+                <a class="nav-link active" href="#">Главная</a>
+                <a class="nav-link" href="#evrei">Евреи изменившие мир</a>
+                <a class="nav-link" href="#istorii">Истории</a>
+                <a class="nav-link" href="#about">О проекте</a>
+            </nav>
+            <div class="header-right">
+                <button class="search-toggle" onclick="toggleSearch()"><i class="bi bi-search"></i></button>
+            </div>
+        </div>
+        <div class="search-bar-wrap" id="searchBarWrap">
+            <div class="search-bar-inner">
+                <i class="bi bi-search"></i>
+                <input type="text" id="searchInput" placeholder="Поиск по видео...">
+                <button onclick="toggleSearch()"><i class="bi bi-x-lg"></i></button>
             </div>
         </div>
     </header>
 
+    <!-- HERO -->
     <section class="hero">
-        <div class="container-fluid px-4">
-            <h1 class="hero-title">Откройте для себя <span class="gradient-text">историю</span></h1>
-            <p class="hero-subtitle">Документальные видео о людях и событиях, изменивших мир</p>
+        <div class="hero-left">
+            <span class="hero-badge">ВИДЕОБИБЛИОТЕКА</span>
+            <h1 class="hero-title">История.<br><span class="gradient-text">Культура.</span><br>Традиции.</h1>
+            <p class="hero-subtitle">Образовательная медиатека, объединяющая историю, традиции, культуру, биографии выдающихся евреев, сериалы, подкасты и материалы для всей семьи.</p>
+            <div class="hero-actions">
+                <button class="btn-primary-custom" onclick="scrollToVideos()">
+                    <i class="bi bi-play-fill"></i> Смотреть видео
+                </button>
+                <button class="btn-secondary-custom" onclick="scrollToSection('evrei')">
+                    Выбрать раздел
+                </button>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="hero-visual">
+                <div class="hero-glow"></div>
+                <div class="hero-card hc-1">
+                    <div class="hc-thumb"><i class="bi bi-play-circle-fill"></i></div>
+                    <div class="hc-info"><span>Фаина Раневская</span><small>Евреи изменившие мир</small></div>
+                </div>
+                <div class="hero-card hc-2">
+                    <div class="hc-thumb"><i class="bi bi-play-circle-fill"></i></div>
+                    <div class="hc-info"><span>1 серия. Начало</span><small>Истории · Сезон 1</small></div>
+                </div>
+                <div class="hero-card hc-3">
+                    <div class="hc-thumb"><i class="bi bi-play-circle-fill"></i></div>
+                    <div class="hc-info"><span>Лев Ландау</span><small>Евреи изменившие мир</small></div>
+                </div>
+                <div class="hero-stat hs-1"><strong>21</strong><span>видео</span></div>
+                <div class="hero-stat hs-2"><strong>2</strong><span>раздела</span></div>
+            </div>
         </div>
     </section>
 
-    <section class="category-nav">
+    <!-- РАЗДЕЛЫ ИКОНКИ -->
+    <section class="sections-icons">
         <div class="container-fluid px-4">
-            <div class="category-tabs">
-                <button class="cat-btn active" data-category="all">Все видео</button>
-                <button class="cat-btn" data-category="evrei">Евреи изменившие мир</button>
-                <button class="cat-btn" data-category="istorii">Истории, которые изменили мир</button>
-            </div>
-            <div class="season-tabs" id="seasonTabs">
-                <button class="season-btn active" data-season="all">Все сезоны</button>
-                <button class="season-btn" data-season="1">1 сезон. Моисей</button>
+            <div class="sections-grid">
+                <div class="section-icon-card" onclick="scrollToSection('evrei')">
+                    <div class="sic-icon"><i class="bi bi-stars"></i></div>
+                    <div class="sic-info">
+                        <h3>Евреи изменившие мир</h3>
+                        <p>Биографии выдающихся личностей</p>
+                    </div>
+                    <i class="bi bi-arrow-right sic-arrow"></i>
+                </div>
+                <div class="section-icon-card" onclick="scrollToSection('istorii')">
+                    <div class="sic-icon sic-blue"><i class="bi bi-collection-play"></i></div>
+                    <div class="sic-info">
+                        <h3>Истории, которые изменили мир</h3>
+                        <p>Документальные сериалы по сезонам</p>
+                    </div>
+                    <i class="bi bi-arrow-right sic-arrow"></i>
+                </div>
             </div>
         </div>
     </section>
 
-    <main class="video-section">
+    <!-- ВИДЕО: ЕВРЕИ -->
+    <section class="video-row-section" id="evrei">
         <div class="container-fluid px-4">
-            <div class="section-label" id="sectionLabel">Все видео</div>
-            <div class="row g-4" id="videoGrid"></div>
+            <div class="row-header">
+                <div>
+                    <h2 class="row-title">Евреи изменившие мир</h2>
+                    <p class="row-sub">Биографии выдающихся евреев, оставивших след в истории</p>
+                </div>
+            </div>
+            <div class="video-scroll-wrap">
+                <div class="video-scroll" id="evreiGrid"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ВИДЕО: ИСТОРИИ -->
+    <section class="video-row-section" id="istorii">
+        <div class="container-fluid px-4">
+            <div class="row-header">
+                <div>
+                    <h2 class="row-title">Истории, которые изменили мир</h2>
+                    <p class="row-sub">Документальные сериалы о ключевых событиях и личностях</p>
+                </div>
+                <div class="season-tabs" id="seasonTabs">
+                    <button class="season-btn active" data-season="1">1 сезон. Моисей</button>
+                </div>
+            </div>
+            <div class="video-scroll-wrap">
+                <div class="video-scroll" id="istoriiGrid"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОИСК -->
+    <section class="search-section" id="videos">
+        <div class="container-fluid px-4">
+            <h2 class="row-title">Все видео</h2>
+            <div class="search-filter-bar">
+                <div class="sfb-search">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="gridSearchInput" placeholder="Поиск по названию...">
+                </div>
+                <div class="sfb-filters">
+                    <button class="filter-btn active" data-category="all">Все</button>
+                    <button class="filter-btn" data-category="evrei">Евреи изменившие мир</button>
+                    <button class="filter-btn" data-category="istorii">Истории</button>
+                </div>
+            </div>
+            <div class="row g-3" id="allGrid"></div>
             <div class="no-results" id="noResults" style="display:none;">
                 <i class="bi bi-camera-video-off"></i>
                 <p>Видео не найдены</p>
             </div>
         </div>
-    </main>
+    </section>
 
+    <!-- О ПРОЕКТЕ -->
+    <section class="about-section" id="about">
+        <div class="container-fluid px-4">
+            <div class="about-inner">
+                <div class="about-left">
+                    <span class="hero-badge">О ПРОЕКТЕ</span>
+                    <h2 class="about-title">Наследие <span class="gradient-text">ФЕНКА</span></h2>
+                    <p class="about-text">Образовательная медиатека, созданная для сохранения и передачи еврейского культурного наследия. Здесь собраны документальные материалы, биографии выдающихся личностей и истории, которые изменили мир.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="astat"><strong>21+</strong><span>видеоматериала</span></div>
+                    <div class="astat"><strong>2</strong><span>раздела</span></div>
+                    <div class="astat"><strong>1</strong><span>сезон</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container-fluid px-4">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="logo-text">НАСЛЕДИЕ <span class="logo-accent">ФЕНКА</span></span>
+                    <p>Образовательная видеобиблиотека</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Главная</a>
+                    <a href="#evrei">Евреи изменившие мир</a>
+                    <a href="#istorii">Истории</a>
+                    <a href="#about">О проекте</a>
+                </div>
+                <div class="footer-social">
+                    <span>Мы в соцсетях</span>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="bi bi-vk"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Наследие ФЕНКА. Все права защищены.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
     <div class="video-modal" id="videoModal">
         <div class="modal-overlay" onclick="closeModal()"></div>
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal()"><i class="bi bi-x-lg"></i></button>
-            <div class="modal-video-wrap">
-                <video id="modalVideo" controls>
-                    <source id="modalVideoSrc" src="" type="video/mp4">
-                </video>
-            </div>
+            <div class="modal-video-wrap" id="modalVideoWrap"></div>
             <div class="modal-info">
                 <h3 id="modalTitle"></h3>
                 <p id="modalDescription"></p>
             </div>
         </div>
     </div>
-
-    <footer>
-        <div class="container-fluid px-4">
-            <p>© 2026 Видеобиблиотека</p>
-        </div>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/videos.js"></script>
