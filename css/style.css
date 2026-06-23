@@ -299,6 +299,13 @@ body {
     font-size: 1.3rem;
     color: white;
     flex-shrink: 0;
+    overflow: hidden;
+}
+.hc-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .hc-info span {
@@ -383,6 +390,20 @@ body {
     font-size: 1.4rem;
     color: #a78bfa;
     flex-shrink: 0;
+}
+
+.sic-img {
+    overflow: hidden;
+    padding: 0;
+    background: none;
+}
+.sic-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 14px;
+    display: block;
 }
 
 .sic-blue {

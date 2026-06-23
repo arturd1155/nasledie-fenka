@@ -12,7 +12,7 @@ const videos = [
         category: "evrei",
         season: null,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239044&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/mark-bernes.jpg",
         duration: "00:00",
         description: ""
     },
@@ -22,7 +22,7 @@ const videos = [
         category: "evrei",
         season: null,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239045&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/andrey-mironov.jpg",
         duration: "00:00",
         description: ""
     },
@@ -32,7 +32,7 @@ const videos = [
         category: "evrei",
         season: null,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239050&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/boris-pasternak.jpg",
         duration: "00:00",
         description: ""
     },
@@ -42,7 +42,7 @@ const videos = [
         category: "evrei",
         season: null,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239053&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/lev-landau.jpg",
         duration: "00:00",
         description: ""
     },
@@ -52,7 +52,7 @@ const videos = [
         category: "evrei",
         season: null,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239059&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/faina-ranevskaya.jpg",
         duration: "00:00",
         description: ""
     },
@@ -62,7 +62,7 @@ const videos = [
         category: "evrei",
         season: null,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239097&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/arkadiy-raykin.jpg",
         duration: "00:00",
         description: ""
     },
@@ -72,7 +72,7 @@ const videos = [
         category: "evrei",
         season: null,
         vkEmbed: "https://vkvideo.ru/video_ext.php?oid=-211817327&id=456239081&hash=71e4bdd1bef1ef21&hd=4",
-        thumbnail: null,
+        thumbnail: "thumbnails/yuriy-levitan.jpg",
         duration: "00:00",
         description: ""
     },
@@ -82,7 +82,7 @@ const videos = [
         category: "evrei",
         season: null,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239057&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/leonid-utesov.jpg",
         duration: "00:00",
         description: ""
     },
@@ -92,7 +92,7 @@ const videos = [
         category: "evrei",
         season: null,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239105&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/samuil-marshak.jpg",
         duration: "00:00",
         description: ""
     },
@@ -102,7 +102,7 @@ const videos = [
         category: "evrei",
         season: null,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239102&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/lev-zilber.jpg",
         duration: "00:00",
         description: ""
     },
@@ -112,7 +112,7 @@ const videos = [
         category: "evrei",
         season: null,
         vkEmbed: "https://vk.com/video_ext.php?oid=-211817327&id=456239110&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/iosif-kobzon.jpg",
         duration: "00:00",
         description: ""
     },
@@ -124,7 +124,7 @@ const videos = [
         category: "istorii",
         season: 1,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239063&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/s1e01.jpg",
         duration: "00:00",
         description: ""
     },
@@ -134,7 +134,7 @@ const videos = [
         category: "istorii",
         season: 1,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239065&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/s1e02.jpg",
         duration: "00:00",
         description: ""
     },
@@ -144,7 +144,7 @@ const videos = [
         category: "istorii",
         season: 1,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239066&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/s1e03.jpg",
         duration: "00:00",
         description: ""
     },
@@ -154,7 +154,7 @@ const videos = [
         category: "istorii",
         season: 1,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239067&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/s1e04.jpg",
         duration: "00:00",
         description: ""
     },
@@ -164,7 +164,7 @@ const videos = [
         category: "istorii",
         season: 1,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239068&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/s1e05.jpg",
         duration: "00:00",
         description: ""
     },
@@ -174,7 +174,7 @@ const videos = [
         category: "istorii",
         season: 1,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239070&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/s1e06.jpg",
         duration: "00:00",
         description: ""
     },
@@ -184,7 +184,7 @@ const videos = [
         category: "istorii",
         season: 1,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239073&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/s1e07.jpg",
         duration: "00:00",
         description: ""
     },
@@ -194,7 +194,7 @@ const videos = [
         category: "istorii",
         season: 1,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239079&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/s1e08.jpg",
         duration: "00:00",
         description: ""
     },
@@ -204,7 +204,7 @@ const videos = [
         category: "istorii",
         season: 1,
         vkEmbed: "https://vkvideo.ru/clip_ext.php?oid=-211817327&id=456239086&autoplay=1",
-        thumbnail: null,
+        thumbnail: "thumbnails/s1e09.jpg",
         duration: "00:00",
         description: ""
     },
@@ -213,8 +213,8 @@ const videos = [
         title: "10 серия. Исход",
         category: "istorii",
         season: 1,
-        vkEmbed: "",
-        thumbnail: null,
+        vkEmbed: "https://vk.com/clip_ext.php?oid=-211817327&id=456239113&autoplay=1",
+        thumbnail: "thumbnails/s1e10.jpg",
         duration: "00:00",
         description: ""
     },
