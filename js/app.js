@@ -1,6 +1,4 @@
 let currentSeason = 1;
-let gridCategory = 'all';
-let gridSearch = '';
 
 function categoryTag(v) {
     if (v.category === 'evrei') return { tag: 'tag-evrei', label: 'Евреи изменившие мир' };
@@ -8,11 +6,10 @@ function categoryTag(v) {
     return { tag: 'tag-istorii', label: `Истории · Сезон ${v.season}` };
 }
 
-function cardHTML(v, isGrid = false) {
+function cardHTML(v) {
     const { tag, label } = categoryTag(v);
-    const cls = isGrid ? 'video-card-grid' : 'video-card';
     return `
-        <div class="${cls}" onclick="openModal(${v.id})">
+        <div class="video-card" onclick="openModal(${v.id})">
             <div class="card-thumb">
                 ${v.thumbnail
                     ? `<img src="${v.thumbnail}" alt="${v.title}" loading="lazy">`
@@ -78,26 +75,6 @@ function closePhotoModal() {
     document.body.style.overflow = '';
 }
 
-function renderAllGrid() {
-    const list = videos.filter(v => {
-        const matchCat = gridCategory === 'all' || v.category === gridCategory;
-        const matchSearch = gridSearch === '' || v.title.toLowerCase().includes(gridSearch.toLowerCase());
-        return matchCat && matchSearch;
-    });
-    const noResults = document.getElementById('noResults');
-    const grid = document.getElementById('allGrid');
-    if (list.length === 0) {
-        grid.innerHTML = '';
-        noResults.style.display = 'block';
-        return;
-    }
-    noResults.style.display = 'none';
-    grid.innerHTML = list.map(v => `
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            ${cardHTML(v, true)}
-        </div>`).join('');
-}
-
 function openModal(id) {
     const v = videos.find(v => v.id === id);
     if (!v) return;
@@ -125,7 +102,7 @@ function toggleSearch() {
 }
 
 function scrollToVideos() {
-    document.getElementById('videos').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('evrei').scrollIntoView({ behavior: 'smooth' });
 }
 
 function scrollToSection(id) {
@@ -142,31 +119,11 @@ document.querySelectorAll('.season-btn').forEach(btn => {
     });
 });
 
-// Filter buttons
-document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        gridCategory = btn.dataset.category;
-        renderAllGrid();
-    });
-});
-
-// Grid search
-document.getElementById('gridSearchInput').addEventListener('input', e => {
-    gridSearch = e.target.value;
-    renderAllGrid();
-});
-
-// Header search
+// Header search — скроллит к первому разделу
 document.getElementById('searchInput').addEventListener('input', e => {
-    gridSearch = e.target.value;
-    gridCategory = 'all';
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
-    document.getElementById('gridSearchInput').value = gridSearch;
-    renderAllGrid();
-    if (gridSearch) document.getElementById('videos').scrollIntoView({ behavior: 'smooth' });
+    if (e.target.value) {
+        document.getElementById('evrei').scrollIntoView({ behavior: 'smooth' });
+    }
 });
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closePhotoModal(); } });
@@ -174,4 +131,3 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal
 renderEvreiRow();
 renderStoriiRow();
 renderSinagogiRow();
-renderAllGrid();
