@@ -2,9 +2,14 @@ let currentSeason = 1;
 let gridCategory = 'all';
 let gridSearch = '';
 
+function categoryTag(v) {
+    if (v.category === 'evrei') return { tag: 'tag-evrei', label: 'Евреи изменившие мир' };
+    if (v.category === 'sinagogi') return { tag: 'tag-sinagogi', label: 'Синагоги мира' };
+    return { tag: 'tag-istorii', label: `Истории · Сезон ${v.season}` };
+}
+
 function cardHTML(v, isGrid = false) {
-    const tag = v.category === 'evrei' ? 'tag-evrei' : 'tag-istorii';
-    const label = v.category === 'evrei' ? 'Евреи изменившие мир' : `Истории · Сезон ${v.season}`;
+    const { tag, label } = categoryTag(v);
     const cls = isGrid ? 'video-card-grid' : 'video-card';
     return `
         <div class="${cls}" onclick="openModal(${v.id})">
@@ -30,6 +35,47 @@ function renderEvreiRow() {
 function renderStoriiRow() {
     const list = videos.filter(v => v.category === 'istorii' && v.season === currentSeason);
     document.getElementById('istoriiGrid').innerHTML = list.map(v => cardHTML(v)).join('');
+}
+
+function photoCardHTML(s) {
+    return `
+        <div class="photo-card" onclick="openPhotoModal(${s.id})">
+            <div class="photo-card-img">
+                ${s.photo
+                    ? `<img src="${s.photo}" alt="${s.title}" loading="lazy">`
+                    : `<div class="thumb-placeholder"><i class="bi bi-building"></i></div>`}
+            </div>
+            <div class="photo-card-body">
+                <div class="photo-card-title">${s.title}</div>
+                ${s.location ? `<div class="photo-card-location"><i class="bi bi-geo-alt"></i> ${s.location}</div>` : ''}
+            </div>
+        </div>`;
+}
+
+function renderSinagogiRow() {
+    const grid = document.getElementById('sinagogiGrid');
+    if (!sinagogi || sinagogi.length === 0) {
+        grid.innerHTML = '<div class="sinagogi-empty"><i class="bi bi-building"></i><p>Фотографии скоро появятся</p></div>';
+        return;
+    }
+    grid.innerHTML = sinagogi.map(s => photoCardHTML(s)).join('');
+}
+
+function openPhotoModal(id) {
+    const s = sinagogi.find(s => s.id === id);
+    if (!s) return;
+    document.getElementById('photoModalImg').src = s.photo || '';
+    document.getElementById('photoModalImg').alt = s.title;
+    document.getElementById('photoModalTitle').textContent = s.title;
+    document.getElementById('photoModalLocation').textContent = s.location || '';
+    document.getElementById('photoModalDescription').textContent = s.description || '';
+    document.getElementById('photoModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closePhotoModal() {
+    document.getElementById('photoModal').classList.remove('active');
+    document.body.style.overflow = '';
 }
 
 function renderAllGrid() {
@@ -123,8 +169,9 @@ document.getElementById('searchInput').addEventListener('input', e => {
     if (gridSearch) document.getElementById('videos').scrollIntoView({ behavior: 'smooth' });
 });
 
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closePhotoModal(); } });
 
 renderEvreiRow();
 renderStoriiRow();
+renderSinagogiRow();
 renderAllGrid();
