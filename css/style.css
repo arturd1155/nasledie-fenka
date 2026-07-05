@@ -711,6 +711,14 @@ body {
     transition: var(--transition);
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
+.vk-icon {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #0077ff;
+    text-decoration: none;
+}
+.vk-icon:hover { color: white; }
 .social-icon:hover {
     color: white;
     background: var(--accent-gradient);
