@@ -116,6 +116,26 @@ const videos = [
         duration: "00:00",
         description: ""
     },
+    {
+        id: 22,
+        title: "Семен Лавочкин",
+        category: "evrei",
+        season: null,
+        vkEmbed: "https://vk.com/clip_ext.php?oid=-211817327&id=456239117&autoplay=1",
+        thumbnail: "thumbnails/lavochkin.jpg",
+        duration: "00:00",
+        description: ""
+    },
+    {
+        id: 23,
+        title: "Семен Ария",
+        category: "evrei",
+        season: null,
+        vkEmbed: "https://vk.com/clip_ext.php?oid=-211817327&id=456239120&autoplay=1",
+        thumbnail: "thumbnails/ariya.jpg",
+        duration: "00:00",
+        description: ""
+    },
 
     // ── ИСТОРИИ, КОТОРЫЕ ИЗМЕНИЛИ МИР — СЕЗОН 1. МОИСЕЙ ─────
     {
