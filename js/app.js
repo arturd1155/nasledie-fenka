@@ -3,7 +3,7 @@ let currentSeason = 1;
 function categoryTag(v) {
     if (v.category === 'evrei') return { tag: 'tag-evrei', label: 'Евреи изменившие мир' };
     if (v.category === 'sinagogi') return { tag: 'tag-sinagogi', label: 'Синагоги мира' };
-    return { tag: 'tag-istorii', label: `Истории · Сезон ${v.season}` };
+    return { tag: 'tag-istorii', label: `Наследие · Сезон ${v.season}` };
 }
 
 function cardHTML(v) {
